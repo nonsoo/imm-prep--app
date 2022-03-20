@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  -webkit--font-smoothing: antialiased;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+:root {
+  /* Fonts Family */
+  --ff-prmy: "Lato", "Roboto", sans-serif;
+
+  /* font sizes */
+  --titleSize: 2rem;
+  --HeadingSize: 1.5rem;
+  --subHeadingSize: 1.25rem;
+  --bodySize: 1rem;
+  --bodySmallSize: 0.75rem;
+
+  /* font Weights */
+  --fw-prmy: 400; /* This is regular*/
+  --fw-sec: 500; /* This is medium*/
+  --fw-tri: 700; /* This is bold*/
+
+  /* Colours */
+  --background-Clr: #f9f8fa;
+  --background-Clr-sec: #ffffff;
+  --background-Clr-tri: #ffffff;
+
+  --prmy-text-color: #171717;
+  --sec-text-color: #ffffff;
+
+  --col-acc-prmy: #6ecbb2;
+
+  /* borderRadius */
+  --borderRadius: 5px;
+  --borderRadius-top: 5px 5px 0 0;
+  --borderRadius-btm: 0 0 5px 5px;
+  --boxShadow-prmy: 0 3px 6px 1px rgba(23, 23, 23, 0.06);
+}
