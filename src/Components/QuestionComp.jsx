@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import Btn from "./InteractiveComp/Btn";
 
 const QuestionComp = () => {
   const [toggleAns, setToggleAns] = useState(false);
+  const { Topic } = useParams();
   const showAns = (e) => {
     e.preventDefault();
     setToggleAns((prevState) => !prevState);
@@ -57,6 +59,7 @@ const QuestionComp = () => {
           </p>
           <textarea className="Question__input" />
           <Btn exCSS="Question__btn" btnName="Submit" />
+          <p>{Topic}</p>
         </form>
       )}
     </main>
