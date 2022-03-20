@@ -1,12 +1,24 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { IoIosSkipForward } from "react-icons/io";
+import { FaRegStopCircle } from "react-icons/fa";
+
 import Btn from "./InteractiveComp/Btn";
 
 const QuestionComp = () => {
+  const navigate = useNavigate();
+
   const [toggleAns, setToggleAns] = useState(false);
-  const { Topic } = useParams();
+  const [userResp, setUserResp] = useState("");
+
   const showAns = (e) => {
     e.preventDefault();
+    setToggleAns((prevState) => !prevState);
+  };
+
+  const nextQuestion = () => {
+    setUserResp("");
     setToggleAns((prevState) => !prevState);
   };
   return (
@@ -25,6 +37,9 @@ const QuestionComp = () => {
               distinctio nam, tempore eius amet minima dignissimos numquam
               vitae, quasi illo?
             </p>
+
+            <p className="userAnsTitle">Your Submitted Answer:</p>
+            <p className="userAns">{userResp}</p>
           </div>
           <div className="Answer__Ideal">
             <p className="Answer__IdealTitle">The Ideal Answer:</p>
@@ -42,7 +57,7 @@ const QuestionComp = () => {
           <Btn
             btnName="Next Question"
             exCSS="Answer__Btn"
-            actFunc={() => setToggleAns((prevState) => !prevState)}
+            actFunc={() => nextQuestion()}
           />
         </section>
       ) : (
@@ -57,9 +72,22 @@ const QuestionComp = () => {
             aspernatur, illo fuga sapiente vero! Velit nostrum distinctio nam,
             tempore eius amet minima dignissimos numquam vitae, quasi illo?
           </p>
-          <textarea className="Question__input" />
+          <textarea
+            className="Question__input"
+            value={userResp}
+            onChange={(e) => setUserResp(e.target.value)}
+          />
+          <div className="Question__Settings">
+            <div className="settingsOption">
+              <IoIosSkipForward />
+              <p className="settingOption__text">Skip</p>
+            </div>
+            <div className="settingsOption" onClick={() => navigate("/")}>
+              <FaRegStopCircle />
+              <p className="settingOption__text">Stop</p>
+            </div>
+          </div>
           <Btn exCSS="Question__btn" btnName="Submit" />
-          <p>{Topic}</p>
         </form>
       )}
     </main>
