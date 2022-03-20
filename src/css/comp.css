@@ -1,0 +1,69 @@
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1em 3em;
+  width: 100%;
+
+  background-color: var(--col-acc-sec);
+
+  border-radius: var(--borderRadius);
+
+  box-shadow: var(--boxShadow-prmy);
+}
+
+.Header__Title {
+  font-size: 2rem;
+  color: var(--sec-text-color);
+}
+
+.TopicsCon {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.topicCard {
+  background-color: var(--background-Clr-sec);
+
+  border-radius: var(--borderRadius);
+
+  padding: 1.25em 3em;
+
+  display: grid;
+  place-items: center;
+  gap: 1.25em;
+}
+
+.topicCard__Name {
+  font-size: var(--fs-sec);
+}
+
+.topicCard__Btn,
+.btn {
+  border: none;
+  border-radius: var(--borderRadius);
+
+  color: var(--sec-text-color);
+  background-color: var(--col-acc-prmy);
+
+  padding: 1em 2em;
+  font-size: var(--fs-prmy);
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: 0.25s ease-in-out;
+}
+
+.topicCard__Btn:hover,
+.btn:hover {
+  outline: 1px solid var(--col-acc-prmy);
+  background-color: var(--background-Clr-sec);
+  color: var(--prmy-text-color);
+}
+
+.btn {
+  text-transform: none;
+}
