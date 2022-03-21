@@ -35,14 +35,11 @@ const QuestionComp = () => {
   };
 
   const nextQuestion = () => {
-    setUserResp("");
-    if (count === getQuesAnsPair?.length) {
-      setCount(getQuesAnsPair?.length);
-    } else {
+    if (count + 1 < getQuesAnsPair?.length) {
       setCount((prevC) => prevC + 1);
+      setToggleAns((prevState) => !prevState);
+      setUserResp("");
     }
-
-    setToggleAns((prevState) => !prevState);
   };
 
   console.log(getQuesAnsPair);
