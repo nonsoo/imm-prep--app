@@ -1,13 +1,30 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { IoIosSkipForward } from "react-icons/io";
 import { FaRegStopCircle } from "react-icons/fa";
 
 import Btn from "./InteractiveComp/Btn";
 
+import SanityClient from "../sanity";
+import BlockContent from "@sanity/block-content-to-react";
+
 const QuestionComp = () => {
   const navigate = useNavigate();
+  const { Topic } = useParams();
+  const [getQuesAnsPair, setGetQuesAnsPair] = useState(null);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const query = `*[CourseName=="Immunology"]{
+  topics[topicName=="${Topic}"]{
+    quesAnsPair
+  }
+}`;
+    SanityClient.fetch(query).then((res) =>
+      setGetQuesAnsPair(res[0].topics[0].quesAnsPair)
+    );
+  }, [Topic]);
 
   const [toggleAns, setToggleAns] = useState(false);
   const [userResp, setUserResp] = useState("");
@@ -19,41 +36,41 @@ const QuestionComp = () => {
 
   const nextQuestion = () => {
     setUserResp("");
+    if (count === getQuesAnsPair?.length) {
+      setCount(getQuesAnsPair?.length);
+    } else {
+      setCount((prevC) => prevC + 1);
+    }
+
     setToggleAns((prevState) => !prevState);
   };
+
+  console.log(getQuesAnsPair);
 
   return (
     <main className="mainQuesCon">
       {toggleAns ? (
         <section className="Answer">
           <div className="UserResponse">
-            <p className="Question__Count">Question 1 of 10</p>
-            <p className="Question__Ques">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum est
-              maxime animi distinctio quia error doloremque cupiditate eveniet
-              mollitia reprehenderit iste neque eligendi cumque possimus tenetur
-              ea ducimus, minus quam! Beatae, minus! Quibusdam temporibus
-              expedita repudiandae distinctio ut voluptate facilis corporis
-              totam aspernatur, illo fuga sapiente vero! Velit nostrum
-              distinctio nam, tempore eius amet minima dignissimos numquam
-              vitae, quasi illo?
+            <p className="Question__Count">
+              {count + 1} of {getQuesAnsPair?.length}
             </p>
+            <div className="Question__Ques">
+              <BlockContent
+                blocks={getQuesAnsPair && getQuesAnsPair[count].question}
+              />
+            </div>
 
             <p className="userAnsTitle">Your Submitted Answer:</p>
             <p className="userAns">{userResp}</p>
           </div>
           <div className="Answer__Ideal">
             <p className="Answer__IdealTitle">The Ideal Answer:</p>
-            <p className="Answer__IdealAns">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam
-              delectus quidem reprehenderit. Enim, reiciendis. Rem, dolor sit
-              cumque magnam quas ipsum quis repudiandae illum pariatur atque
-              necessitatibus explicabo fuga tempore. Illo corporis, quod
-              incidunt provident tempore consequatur reprehenderit accusantium
-              impedit maiores ab doloribus cumque. Unde corrupti nostrum natus
-              velit. Veritatis quaerat tempore qui in distinctio ipsum
-              blanditiis possimus maiores rerum!
-            </p>
+            <div className="Question__Ques">
+              <BlockContent
+                blocks={getQuesAnsPair && getQuesAnsPair[count].answer}
+              />
+            </div>
           </div>
           <Btn
             btnName="Next Question"
@@ -68,16 +85,15 @@ const QuestionComp = () => {
         </section>
       ) : (
         <form className="Question" onSubmit={showAns}>
-          <p className="Question__Count"> Question 1 of 10</p>
-          <p className="Question__Ques">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum est
-            maxime animi distinctio quia error doloremque cupiditate eveniet
-            mollitia reprehenderit iste neque eligendi cumque possimus tenetur
-            ea ducimus, minus quam! Beatae, minus! Quibusdam temporibus expedita
-            repudiandae distinctio ut voluptate facilis corporis totam
-            aspernatur, illo fuga sapiente vero! Velit nostrum distinctio nam,
-            tempore eius amet minima dignissimos numquam vitae, quasi illo?
+          <p className="Question__Count">
+            {count + 1} of {getQuesAnsPair?.length}
           </p>
+
+          <div className="Question__Ques">
+            <BlockContent
+              blocks={getQuesAnsPair && getQuesAnsPair[count].question}
+            />
+          </div>
           <textarea
             className="Question__input"
             value={userResp}
