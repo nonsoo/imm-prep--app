@@ -63,6 +63,15 @@ const QuestionComp = () => {
               <BlockContent
                 blocks={getQuesAnsPair && getQuesAnsPair[count].question}
               />
+              {getQuesAnsPair && getQuesAnsPair[count].Questionimage && (
+                <img
+                  src={UrlFor(getQuesAnsPair[count]?.Questionimage)
+                    .width(300)
+                    .url()}
+                  alt=""
+                  className="Question__Img"
+                />
+              )}
             </div>
 
             <p className="userAnsTitle">Your Submitted Answer:</p>
@@ -99,7 +108,9 @@ const QuestionComp = () => {
             />
             {getQuesAnsPair && getQuesAnsPair[count].Questionimage && (
               <img
-                src={UrlFor(getQuesAnsPair[count]?.Questionimage).url()}
+                src={UrlFor(getQuesAnsPair[count]?.Questionimage)
+                  .width(300)
+                  .url()}
                 alt=""
                 className="Question__Img"
               />
