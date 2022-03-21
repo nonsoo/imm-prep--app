@@ -21,6 +21,7 @@ const QuestionComp = () => {
     setUserResp("");
     setToggleAns((prevState) => !prevState);
   };
+
   return (
     <main className="mainQuesCon">
       {toggleAns ? (
@@ -62,7 +63,7 @@ const QuestionComp = () => {
         </section>
       ) : (
         <form className="Question" onSubmit={showAns}>
-          <p className="Question__Count">Question 1 of 10</p>
+          <p className="Question__Count"> Question 1 of 10</p>
           <p className="Question__Ques">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum est
             maxime animi distinctio quia error doloremque cupiditate eveniet

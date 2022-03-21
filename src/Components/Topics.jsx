@@ -3,12 +3,12 @@ import React from "react";
 import TopicCard from "./TopicCard";
 
 const Topics = () => {
+  const topics = ["B Cells", "T cells", "Allergy", "Innate Immunity"];
   return (
     <div className="TopicsCon">
-      <TopicCard tName="B Cells" />
-      <TopicCard tName="T Cells" />
-      <TopicCard tName="Allergy" />
-      <TopicCard tName="Innate Immunity" />
+      {topics.map((topic) => (
+        <TopicCard tName={topic} />
+      ))}
     </div>
   );
 };
