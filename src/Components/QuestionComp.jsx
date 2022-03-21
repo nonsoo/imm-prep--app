@@ -8,6 +8,13 @@ import Btn from "./InteractiveComp/Btn";
 
 import SanityClient from "../sanity";
 import BlockContent from "@sanity/block-content-to-react";
+import ImageBuilder from "@sanity/image-url";
+
+const builder = ImageBuilder(SanityClient);
+
+const UrlFor = (source) => {
+  return builder.image(source);
+};
 
 const QuestionComp = () => {
   const navigate = useNavigate();
@@ -35,14 +42,14 @@ const QuestionComp = () => {
   };
 
   const nextQuestion = () => {
+    // checks if there is a next question available if so then
+    // set the parameters below
     if (count + 1 < getQuesAnsPair?.length) {
       setCount((prevC) => prevC + 1);
-      setToggleAns((prevState) => !prevState);
+      setToggleAns(false);
       setUserResp("");
     }
   };
-
-  console.log(getQuesAnsPair);
 
   return (
     <main className="mainQuesCon">
@@ -90,6 +97,13 @@ const QuestionComp = () => {
             <BlockContent
               blocks={getQuesAnsPair && getQuesAnsPair[count].question}
             />
+            {getQuesAnsPair && getQuesAnsPair[count].Questionimage && (
+              <img
+                src={UrlFor(getQuesAnsPair[count]?.Questionimage).url()}
+                alt=""
+                className="Question__Img"
+              />
+            )}
           </div>
           <textarea
             className="Question__input"
@@ -98,7 +112,7 @@ const QuestionComp = () => {
             required
           />
           <div className="Question__Settings">
-            <div className="settingsOption">
+            <div className="settingsOption" onClick={() => nextQuestion()}>
               <IoIosSkipForward />
               <p className="settingOption__text">Skip</p>
             </div>
