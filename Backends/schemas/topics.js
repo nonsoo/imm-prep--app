@@ -1,5 +1,5 @@
 export default {
-  name: "topic",
+  name: "topics",
   Title: "Topic",
 
   type: "object",

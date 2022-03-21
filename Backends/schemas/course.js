@@ -8,7 +8,7 @@ export default {
       type: "string",
     },
     {
-      name: "topic",
+      name: "topics",
       title: "Topics",
       type: "array",
       of: [{ type: "topics" }],
