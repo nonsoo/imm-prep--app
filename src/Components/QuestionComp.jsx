@@ -57,7 +57,7 @@ const QuestionComp = () => {
         <section className="Answer">
           <div className="UserResponse">
             <p className="Question__Count">
-              {count + 1} of {getQuesAnsPair?.length}
+              Question: {count + 1} of {getQuesAnsPair?.length}
             </p>
             <div className="Question__Ques">
               <BlockContent
@@ -99,7 +99,7 @@ const QuestionComp = () => {
       ) : (
         <form className="Question" onSubmit={showAns}>
           <p className="Question__Count">
-            {count + 1} of {getQuesAnsPair?.length}
+            Question: {count + 1} of {getQuesAnsPair?.length}
           </p>
 
           <div className="Question__Ques">

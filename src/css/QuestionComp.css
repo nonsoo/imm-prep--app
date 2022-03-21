@@ -134,4 +134,8 @@
   .Question__Settings {
     align-self: flex-start;
   }
+
+  .Question__Ques {
+    align-self: flex-start;
+  }
 }
