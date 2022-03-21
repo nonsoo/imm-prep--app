@@ -76,6 +76,7 @@ const QuestionComp = () => {
             className="Question__input"
             value={userResp}
             onChange={(e) => setUserResp(e.target.value)}
+            required
           />
           <div className="Question__Settings">
             <div className="settingsOption">
