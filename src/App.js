@@ -8,7 +8,6 @@ import Topics from "./Components/Topics";
 import QuestionComp from "./Components/QuestionComp";
 
 function App() {
-  console.log(process.env);
   return (
     <div className="Question-Site">
       <div className="Header">

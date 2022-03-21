@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "imm-prep-Questions"
+    "name": "questionbank-imm"
   },
   "api": {
-    "projectId": "moh8txev",
+    "projectId": "h9fi2kj9",
     "dataset": "qbank"
   },
   "plugins": [

@@ -14,5 +14,6 @@ export default createSchema({
     /* Your types here! */
     topics,
     questionAns,
+    course,
   ]),
 });
