@@ -78,6 +78,16 @@
   float: right;
 }
 
+.Answer__BtnQuit {
+  margin-top: 3rem;
+  float: left;
+
+  background-color: var(--col-acc-tri);
+}
+
+.Answer__BtnQuit:hover {
+  outline: 1px solid var(--col-acc-tri);
+}
 .userAnsTitle {
   align-self: flex-start;
   font-size: var(--fs-tri);

@@ -60,6 +60,11 @@ const QuestionComp = () => {
             exCSS="Answer__Btn"
             actFunc={() => nextQuestion()}
           />
+          <Btn
+            btnName="Quit"
+            exCSS="Answer__BtnQuit"
+            actFunc={() => navigate("/")}
+          />
         </section>
       ) : (
         <form className="Question" onSubmit={showAns}>
