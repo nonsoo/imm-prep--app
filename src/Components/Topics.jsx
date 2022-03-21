@@ -7,7 +7,7 @@ const Topics = () => {
   return (
     <div className="TopicsCon">
       {topics.map((topic) => (
-        <TopicCard tName={topic} />
+        <TopicCard key={Math.floor(Math.random() * 10000)} tName={topic} />
       ))}
     </div>
   );
