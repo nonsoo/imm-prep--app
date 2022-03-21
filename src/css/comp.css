@@ -21,7 +21,12 @@
 .TopicsCon {
   margin-top: 2rem;
   display: flex;
-  justify-content: space-around;
+  align-items: stretch;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  flex-direction: column;
 }
 
 .topicCard {
@@ -66,4 +71,10 @@
 
 .btn {
   text-transform: none;
+}
+
+@media screen and (min-width: 900px) {
+  .TopicsCon {
+    flex-direction: row;
+  }
 }
