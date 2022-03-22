@@ -46,6 +46,10 @@
   font-size: var(--fs-sec);
 }
 
+.Question__GoBackBtn {
+  align-self: flex-start;
+}
+
 .UserResponse,
 .Answer__Ideal {
   display: flex;

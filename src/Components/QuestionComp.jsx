@@ -98,6 +98,11 @@ const QuestionComp = () => {
         </section>
       ) : (
         <form className="Question" onSubmit={showAns}>
+          <Btn
+            btnName="Go Back"
+            actFunc={() => navigate("/")}
+            exCSS="Question__GoBackBtn"
+          />
           <p className="Question__Count">
             Question: {count + 1} of {getQuesAnsPair?.length}
           </p>
