@@ -18,6 +18,13 @@ function App() {
         <Route path="/" element={<Topics />} />
         <Route path="/:Topic" element={<QuestionComp />} />
       </Routes>
+
+      <div className="disclaim">
+        <p className="disclaim__Text">
+          This platform is not affiliated with Bioc39 or the University of
+          Toronto. Questions are for practice only.
+        </p>
+      </div>
     </div>
   );
 }

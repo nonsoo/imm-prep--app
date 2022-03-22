@@ -82,3 +82,19 @@ textarea {
 .hide {
   display: none;
 }
+
+.disclaim {
+  padding: 1em;
+  margin-top: 2em;
+
+  background-color: var(--background-Clr);
+  box-shadow: var(--boxShadow-prmy);
+  border-radius: var(--borderRadius);
+}
+
+.disclaim__Text {
+  text-align: center;
+
+  font-size: var(--fs-tri);
+  font-weight: var(--fw-sec);
+}
