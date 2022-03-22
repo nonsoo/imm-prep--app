@@ -65,9 +65,9 @@ textarea {
 
 .Question-Site {
   max-width: 1440px;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  /* padding: 2em 3em; */
+  padding: 1em 3em;
   margin: 0 auto;
 
   font-family: var(--ff-prmy);
@@ -95,7 +95,7 @@ textarea {
 .disclaim__Text {
   text-align: center;
 
-  font-size: var(--fs-tri);
+  font-size: var(--fs-prmy);
   font-weight: var(--fw-sec);
 }
 
@@ -114,10 +114,12 @@ textarea {
   justify-content: center;
 
   padding: 1.5em;
+
+  border-radius: var(--borderRadius);
 }
 
 .HeaderNew__Img {
-  width: 50%;
+  display: none;
 }
 
 .HeaderNew__Title {
@@ -125,4 +127,11 @@ textarea {
   font-weight: var(--fw-tri);
 
   color: var(--sec-text-color);
+}
+
+@media screen and (min-width: 800px) {
+  .HeaderNew__Img {
+    display: block;
+    width: 50%;
+  }
 }
