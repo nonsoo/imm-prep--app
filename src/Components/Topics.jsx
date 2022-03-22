@@ -19,14 +19,27 @@ const Topics = () => {
   }, []);
 
   return (
-    <div className="TopicsCon">
-      {topicsRes?.map((topic) => (
-        <TopicCard
-          key={Math.floor(Math.random() * 10000)}
-          tName={topic.topicName}
-        />
-      ))}
-    </div>
+    <section className="Welcome">
+      <div className="welcomeText">
+        <p className="welcomeMessage">
+          Exam season is coming up!!! Get some practice with short answer
+          questions
+        </p>
+        <p className="welcomeMessage lowerC">
+          Pick a topic & Answer the questions! How did you do? Was your answer
+          similar to the "Ideal answer"?
+        </p>
+      </div>
+
+      <div className="TopicsCon">
+        {topicsRes?.map((topic) => (
+          <TopicCard
+            key={Math.floor(Math.random() * 10000)}
+            tName={topic.topicName}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 
