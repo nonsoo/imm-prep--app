@@ -10,10 +10,6 @@ import QuestionComp from "./Components/QuestionComp";
 function App() {
   return (
     <div className="Question-Site">
-      <div className="Header">
-        <p className="Header__Title">Immunology Prep</p>
-      </div>
-
       <Routes>
         <Route path="/" element={<Topics />} />
         <Route path="/:Topic" element={<QuestionComp />} />
