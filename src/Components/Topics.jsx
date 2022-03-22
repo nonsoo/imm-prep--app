@@ -26,9 +26,10 @@ const Topics = () => {
           questions
         </p>
         <p className="welcomeMessage lowerC">
-          Pick a topic & Answer the questions! How did you do? Was your answer
-          similar to the "Ideal answer"?
+          Pick a topic & Answer the questions! How did you do? Aced It?!?!?! or
+          need more practice???
         </p>
+        <p className="welcomeMessage">Good luck Studying!!!</p>
       </div>
 
       <div className="TopicsCon">
