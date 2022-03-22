@@ -69,6 +69,10 @@
   border-radius: var(--borderRadius);
 }
 
+.Question__Img {
+  margin-top: 1.25rem;
+}
+
 .Answer__Ideal {
   gap: 1rem;
 }
