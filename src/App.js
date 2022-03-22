@@ -10,14 +10,17 @@ import QuestionComp from "./Components/QuestionComp";
 function App() {
   return (
     <div className="Question-Site">
-      <div className="Header">
-        <p className="Header__Title">Immunology Prep</p>
-      </div>
-
       <Routes>
         <Route path="/" element={<Topics />} />
         <Route path="/:Topic" element={<QuestionComp />} />
       </Routes>
+
+      <div className="disclaim">
+        <p className="disclaim__Text">
+          This platform is not affiliated with Bioc39 or the University of
+          Toronto. Questions are for practice only.
+        </p>
+      </div>
     </div>
   );
 }
