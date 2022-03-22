@@ -82,7 +82,7 @@ const QuestionComp = () => {
               <p className="userAns">{userResp}</p>
             </div>
             <div className="Answer__Ideal">
-              <p className="Answer__IdealTitle">The Ideal Answer:</p>
+              <p className="Answer__IdealTitle">A suggested answer:</p>
               <div className="Question__Ques">
                 <BlockContent
                   blocks={getQuesAnsPair && getQuesAnsPair[count].answer}
