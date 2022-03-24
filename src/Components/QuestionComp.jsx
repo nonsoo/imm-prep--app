@@ -111,7 +111,7 @@ const QuestionComp = () => {
         ) : (
           <form className="Question" onSubmit={showAns}>
             <Btn
-              btnName="Go Back"
+              btnName="Change Topic"
               actFunc={() => navigate("/")}
               exCSS="Question__GoBackBtn"
             />
