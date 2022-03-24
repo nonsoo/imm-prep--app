@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { IoIosSkipForward } from "react-icons/io";
+import { IoIosSkipForward, IoIosSkipBackward } from "react-icons/io";
 import { FaRegStopCircle } from "react-icons/fa";
 
 import Btn from "./InteractiveComp/Btn";
@@ -46,6 +46,14 @@ const QuestionComp = () => {
     // set the parameters below
     if (count + 1 < getQuesAnsPair?.length) {
       setCount((prevC) => prevC + 1);
+      setToggleAns(false);
+      setUserResp("");
+    }
+  };
+
+  const prevQuestion = () => {
+    if (count > 0) {
+      setCount((prevC) => prevC - 1);
       setToggleAns(false);
       setUserResp("");
     }
@@ -132,6 +140,10 @@ const QuestionComp = () => {
               required
             />
             <div className="Question__Settings">
+              <div className="settingsOption" onClick={() => prevQuestion()}>
+                <IoIosSkipBackward />
+                <p className="settingOption__text">Prev Question</p>
+              </div>
               <div className="settingsOption" onClick={() => nextQuestion()}>
                 <IoIosSkipForward />
                 <p className="settingOption__text">Skip</p>

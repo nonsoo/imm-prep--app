@@ -127,6 +127,11 @@
   align-items: center;
 
   cursor: pointer;
+  gap: 0.25em;
+}
+
+.settingOption__text {
+  text-align: center;
 }
 
 @media screen and (min-width: 800px) {
