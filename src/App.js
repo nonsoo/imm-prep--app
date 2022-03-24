@@ -1,6 +1,7 @@
 import "./css/layout.css";
 import "./css/comp.css";
 import "./css/QuestionComp.css";
+import "./css/loading.css";
 
 import { Routes, Route } from "react-router-dom";
 
