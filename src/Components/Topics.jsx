@@ -5,6 +5,8 @@ import Header from "./Header";
 
 import SanityClient from "../sanity";
 
+import Loading from "./InteractiveComp/Loading";
+
 const Topics = () => {
   const [topicsRes, setTopicsRes] = useState(null);
 
@@ -22,15 +24,19 @@ const Topics = () => {
   return (
     <>
       <Header />
-      <section className="Welcome">
-        <div className="TopicsCon">
-          {topicsRes?.map((topic) => (
-            <TopicCard
-              key={Math.floor(Math.random() * 10000)}
-              tName={topic.topicName}
-            />
-          ))}
-        </div>
+      <section className="welcome">
+        {topicsRes ? (
+          <div className="TopicsCon">
+            {topicsRes?.map((topic) => (
+              <TopicCard
+                key={Math.floor(Math.random() * 10000)}
+                tName={topic.topicName}
+              />
+            ))}
+          </div>
+        ) : (
+          <Loading />
+        )}
       </section>
     </>
   );
